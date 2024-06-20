@@ -1,0 +1,2 @@
+# Reverbify
+A simple audio player that allows you to load audio from a URL or a file and apply reverb to it. It runs locally so theres not server-side things at all so you do not have to worry about files being "unsecure" Not entirely sure why I made this tbh

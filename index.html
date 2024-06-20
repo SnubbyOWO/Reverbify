@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverbify</title>
+    <link rel="shortcut icon" href="./ico/favicon.png">
+    <!---------------Libs--------------->
+    <script src="js/p5.js"></script>
+    <script src="js/p5.sound.js"></script>
+    <!---------------------------------->
+    <script src="js/script.js"></script>
+    <script src="js/displayconsole.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glow">
+        <h1>Reverbify</h1>
+        <h2>Reverb audios all from just the browser.</h2>
+        <h3>Accepts wav, mp3, ogg, m4a</h3>
+        <label for="audioUrl">Enter URL:</label>
+        <input type="text" id="audioUrl" placeholder="Enter URL">
+        <br>
+        <label for="fileInput">Choose file:</label>
+        <input type="file" id="fileInput">
+        <br>
+        <span id="inform" style="color: red;">Audio not loaded.</span>
+        <br>
+        <button onclick="loadAudio(false)">Load audio</button>
+        <button onclick="togglePlay()">Play/Pause</button>
+        <button onclick="shareLink()">Share</button>
+        <button onclick="loadAudio(true)">Load Example</button>
+        <br>
+        <textarea id="shareLink" style="display: none;"></textarea>
+        <br>
+        <input type="checkbox" id="loopCheckbox" name="Enloop">
+        <label for="loopCheckbox">Enable Looping?</label>
+        <div class="slider-container">
+            <span class="slider-label">Volume:</span>
+            <input type="range" id="ampSlider" min="0" max="10" step="1" value="5">
+            <span id="ampValue">5</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Reverb:</span>
+            <input type="range" id="reverbSlider" min="0" max="1" step="0.01" value="0.2">
+            <span id="reverbValue">0.2</span>
+        </div>
+        <div class="slider-container">
+            <span class="slider-label">Playback Rate:</span>
+            <input type="range" id="rateSlider" min="0.1" max="2" step="0.1" value="0.85">
+            <span id="rateValue">0.85</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="time-display" id="timeDisplay">0:00 / 0:00</div>
+        <a id="downloadLink" style="display: none;"></a>
+    </div>
+    <div class="console glow">
+        <textarea id="consoleOutput" readonly></textarea>
+    </div>
+    <!--<button onclick="downloadAudio()">Download Modified Audio</button>-->
+    <canvas id="audioVisualizer"></canvas>
+    <footer>
+        <b>What is this tool?</b> <br> This is a simple audio player that allows you to load audio from a URL or a file and apply reverb to it. Not exactly sure WHY I created this but it was intresting to make. <br>
+        <p>Created by <a href="https://snubby.top/">Snubby</a></p>Used <a href="https://p5js.org/">p5.js</a>
+    </footer>
+</body>
+</html>
